@@ -113,24 +113,23 @@ switch (userHobby) {
     resultUserHobby = `Улюблений вид спорту ${userHobby}`;
 }
 
-alert(`${resultUserAge} 
-${resultUserCity} 
+alert(`${resultUserAge}
+${resultUserCity}
 ${resultUserHobby}`);
 
-// // task 9
-// let numOrStr = prompt("input number or string", "");
+// task 9
+let numOrStr = prompt("input number or string", "");
 
-// switch (numOrStr) {
-//   case numOrStr.trim() === "":
-//     console.log("Empty String");
-//     break;
-//   case !isNaN(+numOrStr) || numOrStr:
-//     console.log("number is Ba_NaN");
-//     break;
-//   // case null:
-//   //   console.log("ви скасували");
-//   //   break;
-//   default:
-//     console.log("OK!");
-//     console.log(numOrStr.trim());
-// }
+switch (numOrStr && numOrStr.trim() && String(+numOrStr)) {
+  case "":
+    console.log("Empty String");
+    break;
+  case "NaN":
+    console.log("number is Ba_NaN");
+    break;
+  case null:
+    console.log("ви скасували");
+    break;
+  default:
+    console.log("OK!");
+}
