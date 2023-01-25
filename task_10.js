@@ -1,4 +1,4 @@
-// task 10
+//task 10
 // part 1
 let resultTask1 = "";
 for (let i = 10; i <= 20; i++) {
