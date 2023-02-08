@@ -25,4 +25,4 @@ let ladder = {
   },
 };
 
-console.log(ladder.up().up().down().showStep());
+ladder.up().up().down().showStep();
