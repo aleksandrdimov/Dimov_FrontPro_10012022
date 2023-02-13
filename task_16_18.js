@@ -39,16 +39,19 @@ console.log(key);
 const randomArray = [4, -6, "hello", 10, -265, "Alex", undefined, "30"];
 
 function calcMathNumbers() {
-  let countNumbers = 0,
-    numbersSum = 0;
+  // let countNumbers = 0,
+  //   numbersSum = 0;
 
-  randomArray.forEach((el) => {
-    if (el >= 0 || el <= 0) {
-      countNumbers++;
-      numbersSum += Number(el);
-    }
-  });
-  return numbersSum / countNumbers;
+  // randomArray.forEach((el) => {
+  //   if (el >= 0 || el <= 0) {
+  //     countNumbers++;
+  //     numbersSum += Number(el);
+  //   }
+  // });
+  // return numbersSum / countNumbers;
+  
+  const onlyNumArray = randomArray.filter((item) => typeof item === "number");
+  return onlyNumArray.reduce((a, b) => a + b) / onlyNumArray.length;
 }
 
 console.log(calcMathNumbers());
