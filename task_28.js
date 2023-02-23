@@ -12,11 +12,11 @@
 function isDay(time) {
   return new Date().getDate() ===
     new Date(new Date().getTime() + Number(time)).getDate()
-    ? console.log(true)
-    : console.log(false);
+    ? true
+    : false;
 }
 
-isDay(80000);
+console.log(isDay(80000));
 
 // part 2
 function createDate(time) {
