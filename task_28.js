@@ -21,12 +21,10 @@ console.log(isDay(80000));
 // part 2
 function createDate(time) {
   const dateFormat = new Date(Number(time)).toLocaleString();
-  return console.log(
-    dateFormat.slice(0, dateFormat.length - 3).replace(/,/, "")
-  );
+  return dateFormat.slice(0, dateFormat.length - 3).replace(/,/, "");
 }
 
-createDate(500000000);
+console.log(createDate(500000000));
 
 // part 3
 function timeFromFirst(time) {
@@ -43,19 +41,19 @@ function timeFromFirst(time) {
     ? (someWords = "Прошло ")
     : (someWords = "Должно пройти ещё ");
 
-  return console.log(
+  return (
     someWords +
-      years +
-      " years, " +
-      months +
-      " months, " +
-      days +
-      " days, " +
-      hours +
-      " hours and " +
-      minutes +
-      " minutes."
+    years +
+    " years, " +
+    months +
+    " months, " +
+    days +
+    " days, " +
+    hours +
+    " hours and " +
+    minutes +
+    " minutes."
   );
 }
 
-timeFromFirst(2000000000000);
+console.log(timeFromFirst(2000000000000));
