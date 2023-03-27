@@ -14,7 +14,6 @@ buttons.forEach((button, index) => {
 function visitPage() {
   links.forEach((el) => {
     if (!el.getAttribute("href").includes("http")) {
-      console.log(el);
       el.href = "http://" + el.pathname;
     }
   });
