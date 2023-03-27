@@ -6,16 +6,18 @@ const secondLink = document.querySelector(".second__link");
 secondLink.innerText = "go to site\n " + secondLink.getAttribute("href");
 
 buttons.forEach((button, index) => {
-  button.addEventListener("click", (e) => {
+  button.addEventListener("click", () => {
+    changeToValidLink();
     window.location = links[index].getAttribute("href");
   });
 });
 
-function visitPage() {
+function changeToValidLink() {
   links.forEach((el) => {
     if (!el.getAttribute("href").includes("http")) {
-      el.href = "http://" + el.pathname;
+      el.href = "http://" + el.pathname.substring(1);
     }
   });
 }
-visitPage();
+
+console.log(links);
