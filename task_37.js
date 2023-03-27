@@ -19,5 +19,3 @@ function changeToValidLink() {
     }
   });
 }
-
-console.log(links);
