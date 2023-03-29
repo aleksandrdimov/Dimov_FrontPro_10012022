@@ -1,0 +1,28 @@
+li{
+    list-style: none;
+}
+
+#rating{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.rating__item:not(:last-of-type){
+    margin-right: 25px;
+}
+
+.rating__item-picture{
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
+
+.rating__item-counter{
+    text-align: center;
+    text-shadow: 1px 1px 1px black;
+    font-weight: 700;
+    font-size: 20px;
+    color: grey;
+}
+
