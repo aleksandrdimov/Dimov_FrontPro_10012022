@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+li{
+    list-style: none;
+}
+
+.online-store{
+    position: relative;
+    display: grid;
+    grid-template-columns:10px 150px 5px 1fr 5px  1fr 10px;
+}
+
+.column{
+    border: 1px solid black;
+    min-height: 100vh;
+}
+
+.column__first{
+    grid-column: 2/3;
+}
+.column__second{
+    grid-column: 4/5;
+}
+.column__third{
+    grid-column: 6/7;
+     
+   
+}
+
+.online-store__list{
+    width: 100%;
+}
+.online-store__list-item{
+    cursor: pointer;
+    padding: 5px;
+    font-size: 24px;
+}
+.online-store__list-item:hover{
+    color: rgb(103, 103, 253);
+}
+
+.online-store__list-item:not(:last-of-type){
+    border-bottom: 1px solid grey;
+}
+
+.online-store__category-box,.online-store__detaily-box{
+    display: none;
+ }
+ 
+.online-store__category-box.js-active,.online-store__detaily-box.js-active{
+    display: flex;
+    flex-wrap: wrap;
+}
+.online-store__item-box{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    box-shadow: 2px 2px 5px grey;
+    margin: 10px;
+}
+
+.online-store__item-box:hover p{
+    color:rgb(103, 103, 253)
+}
+
+.online-store__item-picture{
+    max-width: 150px;
+    max-height: 100px;
+}
+
+.online-store__item-title{
+    text-align: center;
+    font-size: 18px;
+    padding: 5px;
+}
+
+.online-store__detaily-box{
+    cursor: pointer;
+    display: none;
+    flex-direction: column;
+    width: 100%; 
+}
+
+.online-store__detaily-box .online-store__item-picture{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.onlie-store__item-detail{
+    padding: 10px 10px 30px 10px;
+}
+
+.online-store__button{
+    cursor: pointer;
+    font-size: 15px;
+    padding: 10px 25px;
+    margin: 0 10px 10px 10px ;
+    border-radius: 20px;
+    color: white;
+    background-color: rgb(102, 102, 102);
+}
+
+.online-store__button:hover{
+    color:rgb(111, 231, 111)
+}
+
+.modal{
+    position: absolute;
+    z-index: 10;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 50vw;
+    height: 150px;
+    background-color: white;
+    box-shadow: 1px 1px 5px grey;
+    border-radius: 20px;
+    font-size: 48px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.js-active{
+    display: flex;
+}

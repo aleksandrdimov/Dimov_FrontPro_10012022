@@ -1,0 +1,15 @@
+section{
+   display: inline-block;
+   border: 1px solid black;
+   padding: 10px;
+   margin: auto;
+}
+
+.form__name-box,.form__gender-box,.form__city,.form__adds,.form__languages{
+    margin-bottom: 10px;
+    display: block;
+}
+
+.form__button{
+    padding: 5px 20px;
+}
