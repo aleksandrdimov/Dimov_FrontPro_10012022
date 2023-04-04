@@ -165,6 +165,60 @@
       </div>
 
       <div class="modal"></div>
+      <div class="modal__buy">
+        <div class="modal__container">
+          <button class="modal__exit">X</button>
+          <form action="" class="modal__form">
+            <label class="modal__label" for="userName">Input your name:</label>
+            <input
+              type="text"
+              name="userName"
+              class="modal__user-name"
+              placeholder="First and Last Name"
+            />
+            <label class="modal__label" for="city">Select city:</label>
+            <select class="modal__city" name="city" id="city">
+              <option value="Kyev">Kyev</option>
+              <option value="Odessa">Odessa</option>
+              <option value="Lviv">Lviv</option>
+              <option value="Kharkiv">Kharkiv</option>
+              <option value="Dnipro">Dnipro</option>
+            </select>
+            <label class="modal__label" for="delivery">Select delivery:</label>
+            <select class="modal__delivery" name="delivery" id="delivery">
+              <option value="department №1">department №1</option>
+              <option value="department №2" selected>department №2</option>
+              <option value="department №3">department №3</option>
+              <option value="department №4">department №4</option>
+            </select>
+            <label class="modal__label" for="payment">Select payment:</label>
+            <select class="modal__payment" name="payment" id="payment">
+              <option value="offline">offline</option>
+              <option value="online" selected>online</option>
+            </select>
+            <label class="modal__label" for="count">Select quantity:</label>
+            <div class="modal__counter">
+              <span class="decrement button__counter">-</span>
+              <span class="count" name="count">1</span>
+              <span class="increment button__counter">+</span>
+            </div>
+            <textarea
+              class="modal__comment"
+              name="comment"
+              id="comment"
+              cols="40"
+              rows="4"
+              placeholder="write a comment"
+            ></textarea>
+          </form>
+          <button type="submit" name="submit" class="modal__button">
+            Submit
+          </button>
+        </div>
+        <div class="modal__view-data">
+          <p class="user-data"></p>
+        </div>
+      </div>
     </section>
 
     <script src="task_41_44.js"></script>
