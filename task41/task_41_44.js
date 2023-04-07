@@ -8,6 +8,7 @@ const itemsTitle = document.querySelectorAll(".online-store__item-title");
 const modal = document.querySelector(".modal__buy");
 const form = document.querySelector(".modal__form");
 const buttonSubmit = document.querySelector(".modal__button");
+const category = document.querySelector(".online-store__category");
 
 function openCatalogItem() {
   categories.forEach((el, index) => {
@@ -85,6 +86,9 @@ function validation() {
 
 validation();
 
+let resultPrice = 1;
+let count = 1;
+
 function viewData() {
   const formContainer = document.querySelector(".modal__container");
   const countNumder = document.querySelector(".count");
@@ -96,13 +100,31 @@ function viewData() {
   detailyItems.forEach((el) => {
     if (el.classList.contains("js-active")) {
       const title = el.getElementsByClassName("online-store__item-title");
+      const price = el.getElementsByClassName("online-store__item-price");
+
       resultTitle = title[0].innerText;
+      resultPrice = price[0].innerText * countNumder.innerText;
     }
   });
-
+  const purchase = {
+    title: resultTitle,
+    price: resultPrice,
+    quantity: countNumder.innerText,
+    customer: form.userName.value,
+    city: form.city.value,
+    delivery: form.delivery.value,
+    payment: form.payment.value,
+    comment: form.comment.value,
+  };
+  const jsonPurchase = JSON.stringify(purchase);
+  const date = new Date().toLocaleString().replace(",", "");
+  window.localStorage.setItem(date, resultPrice + "$ " + jsonPurchase);
   textOnView.innerText =
     "Order is processed\n Product: " +
     resultTitle +
+    "\nPrice: " +
+    resultPrice +
+    " $" +
     "\nQuantity: " +
     countNumder.innerText +
     " pcs" +
@@ -118,12 +140,151 @@ function viewData() {
     form.comment.value;
 
   setTimeout(() => {
+    location.reload();
+  }, 2000);
+}
+
+function clickButtonHistory() {
+  const buttonHistory = document.querySelector(".button__history");
+  const localStorageObj = window.localStorage;
+
+  buttonHistory.addEventListener("click", () => {
     delStyle(itemsCaterogy);
     delStyle(detailyItems);
-    textOnView.innerText = "";
-    formContainer.classList.remove("js-active");
+
+    for (let prop in localStorageObj) {
+      const history = document.querySelector(".online-store__history-box");
+      const historyItem = document.createElement("p");
+      const historyItemExit = document.createElement("span");
+      historyItem.style = `cursor:pointer;position:relative;margin-bottom:15px`;
+      historyItemExit.style = `cursor:pointer;position:absolute;z-index:5;top:0;right:0;padding:3px 5px;color:red;font-size:10px;background-color:grey;`;
+
+      if (localStorageObj.getItem(prop) !== null) {
+        const objValue = localStorageObj.getItem(prop);
+        const indexSymbol = objValue.indexOf(" ");
+        historyItem.innerText =
+          "Date create: " +
+          prop +
+          "\nTotal price: " +
+          objValue.slice(0, indexSymbol);
+        historyItemExit.innerText = "X";
+        historyItemExit.classList.add("exit");
+        history.appendChild(historyItem);
+        historyItem.appendChild(historyItemExit);
+      }
+    }
+    category.classList.add("js-active");
+    hoverHistoryItem();
+    hoverHistoryExit();
+    removeLocalStorageValues();
+    clickLocalStorageItem();
+  });
+}
+
+clickButtonHistory();
+
+function hoverHistoryItem() {
+  const historyItems = document.querySelectorAll(
+    ".online-store__history-box p"
+  );
+
+  historyItems.forEach((el) => {
+    el.addEventListener("mouseover", () => {
+      el.style = `cursor:pointer;position:relative;margin-bottom:15px;box-shadow:1px 1px 8px grey`;
+    });
+
+    el.addEventListener("mouseout", () => {
+      el.style = `cursor:pointer;position:relative;margin-bottom:15px;box-shadow:none`;
+    });
+  });
+}
+
+function hoverHistoryExit() {
+  const historyItemsExit = document.querySelectorAll(".exit");
+
+  historyItemsExit.forEach((el) => {
+    el.addEventListener("mouseover", () => {
+      el.style = `cursor:pointer;position:absolute;z-index:5;top:0;right:0;padding:3px 5px;color:white;font-size:10px;background-color:black;`;
+    });
+
+    el.addEventListener("mouseout", () => {
+      el.style = `cursor:pointer;position:absolute;z-index:5;top:0;right:0;padding:3px 5px;color:red;font-size:10px;background-color:grey;`;
+    });
+  });
+}
+
+function removeLocalStorageValues() {
+  const historyItemsExit = document.querySelectorAll(".exit");
+  const historyItems = document.querySelectorAll(
+    ".online-store__history-box p"
+  );
+  const history = document.querySelector(".online-store__history-box");
+
+  if (historyItems.length === 0) {
+    location.reload();
+  }
+  historyItemsExit.forEach((el, index) => {
+    el.addEventListener("click", (item) => {
+      const historyItems = document.querySelectorAll(
+        ".online-store__history-box p"
+      );
+
+      if (historyItems.length === 1) {
+        location.reload();
+      }
+      localStorage.removeItem(localStorage.key(index));
+      history.removeChild(historyItems[index]);
+    });
+  });
+}
+
+function clickLocalStorageItem() {
+  const historyItems = document.querySelectorAll(
+    ".online-store__history-box p"
+  );
+
+  historyItems.forEach((el, index) => {
+    el.addEventListener("click", () => {
+      const valueLocalItem = localStorage.getItem(localStorage.key(index));
+      const findIndexSlice = valueLocalItem.indexOf(" ");
+      const objValueLocal = valueLocalItem.slice(
+        findIndexSlice,
+        valueLocalItem.length
+      );
+      showModalArterClickLocal();
+
+      const parseJson = JSON.parse(objValueLocal);
+      const textOnView = document.querySelector(".user-data");
+
+      textOnView.innerText =
+        "Order is processed\n Product: " +
+        parseJson.title +
+        "\nPrice: " +
+        parseJson.price +
+        " $" +
+        "\nQuantity: " +
+        parseJson.quantity +
+        " pcs" +
+        "\nCustomer: " +
+        parseJson.customer +
+        "\nDelivery: " +
+        parseJson.city +
+        ", " +
+        parseJson.delivery +
+        "\nPayment: " +
+        parseJson.payment +
+        "\nComment: " +
+        parseJson.comment;
+    });
+  });
+}
+
+function showModalArterClickLocal() {
+  modal.classList.add("js-active");
+  const formContainer = document.querySelector(".modal__container");
+  formContainer.classList.add("js-active");
+  setTimeout(() => {
     modal.classList.remove("js-active");
-    form.userName.value = "";
-    countNumder.innerText = 1;
+    formContainer.classList.remove("js-active");
   }, 2000);
 }
