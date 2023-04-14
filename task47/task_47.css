@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(236, 236, 236);
+}
+
+.post__container{
+    padding: 20px;
+}
+.label{
+    display: block;
+}
+.search-post{
+    cursor: pointer;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.error{
+    display: none;
+    color: red;   
+}
+
+.error.js-active{
+    display: inline;
+}
+
+.post__item{
+    position: relative;
+    box-shadow: 1px 1px 4px grey;
+}
+
+.post__item:not(:last-of-type),.comment__item:not(:last-of-type){
+    margin-bottom: 20px;
+}
+
+.post__id,.comment__id{
+    position: absolute;
+    z-index: 2;
+    top: 5px;
+    left: 5px;
+}
+.post__title,.comment__title{
+    text-align: center;
+    padding: 10px 20px;
+}
+
+.post__text,.comment__text{
+    padding: 10px 5px;
+}
+
+.button__comments{
+    cursor: pointer;
+    min-width: 140px;
+    padding: 10px 20px;
+    color: white;
+    background-color: grey;
+}
+
+.button__comments:hover{
+    color: wheat;
+    background-color: rgb(73, 73, 73);
+}
+
+.button__show,.button__hide{
+    display: none;
+}
+
+.button__show.js-active,.button__hide.js-active{
+    display: block;
+}
+
+.comment__item{
+    position: relative;
+    display: none;
+    box-shadow: 1px 1px 5px grey;
+}
+
+.comment__item.js-active{
+    display: block;
+}
+
+.comment__email{
+    padding: 5px;
+}
