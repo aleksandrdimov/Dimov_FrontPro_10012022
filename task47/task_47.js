@@ -2,7 +2,7 @@ const postListItem = document.getElementById("post__list");
 const searchInputItem = document.getElementById("search-post");
 
 const API_Posts = "https://jsonplaceholder.typicode.com/posts";
-const API_Coments = "https://jsonplaceholder.typicode.com/comments";
+const API_Coments = "https://jsonplaceholder.typicode.com/comments?postId=";
 
 let postsData = [];
 let commentsData = [];
