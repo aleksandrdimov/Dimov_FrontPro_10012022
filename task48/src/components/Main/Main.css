@@ -1,0 +1,41 @@
+.main {
+  max-width: 1280px;
+  margin: auto;
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+}
+
+.main__container {
+  margin-left: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.aside {
+  position: relative;
+  width: 200px;
+  height: 50vh;
+}
+
+.aside::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  border-top: 50vh solid rgb(54, 54, 54);
+  border-left: 0px solid transparent;
+  border-right: 200px solid #c1b0fd;
+}
+
+.aside::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 0;
+  border-bottom: 50px solid rgb(54, 54, 54);
+  border-left: 0px solid transparent;
+  border-right: 200px solid #c1b0fd;
+}
