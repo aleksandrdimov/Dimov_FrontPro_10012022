@@ -1,0 +1,74 @@
+.App {
+  text-align: center;
+}
+
+.emoji__wrapper {
+  max-width: 700px;
+  padding: 20px;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.emoji-box:not(:last-of-type) {
+  margin-right: 20px;
+}
+
+.svg-emoji {
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+}
+
+.like-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  color: rgb(190, 190, 190);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 18px;
+}
+
+.like-img {
+  width: 18px;
+  height: 18px;
+  margin-left: 5px;
+}
+
+.button-show {
+  cursor: pointer;
+  padding: 15px 30px;
+  border-radius: 25px;
+  background-color: white;
+  box-shadow: 1px 5px 1px rgb(54, 54, 54);
+}
+
+.button-show:focus {
+  animation: active 0.6s forwards ease;
+}
+
+.emoji-winner {
+  margin-top: 30px;
+  font-size: 30px;
+}
+
+@keyframes active {
+  0% {
+    box-shadow: 1px 5px 1px rgb(54, 54, 54);
+  }
+  50% {
+    transform: translateY(5px);
+    background-color: rgb(133, 133, 133);
+    color: white;
+    box-shadow: inset 0px 0px 5px rgb(54, 54, 54);
+  }
+  100% {
+    box-shadow: 1px 5px 1px rgb(54, 54, 54);
+    transform: none;
+    background-color: white;
+    color: black;
+  }
+}

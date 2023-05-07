@@ -3,7 +3,7 @@ import InputCheckbox from "../common/InputCheckbox/InputCheckbox";
 
 const ToDoItem = (props) => {
   return (
-    <li className="item" key={props.task.id}>
+    <li className="item" reactKey={props.reactKey}>
       <div
         className="item__content"
         onClick={() => {

@@ -6,6 +6,7 @@ const TodoList = (props) => {
       {props.tasks.map((el, index) => {
         return (
           <ToDoItem
+            reactKey={el.id}
             task={el}
             index={index}
             deleteTask={props.deleteTask}

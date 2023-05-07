@@ -49,7 +49,7 @@ function App() {
             Add Task
           </button>
         </div>
-        {tasks && tasks.length ? (
+        {tasks.length ? (
           <TodoList tasks={tasks} deleteTask={deleteTask} isDone={isDone} />
         ) : (
           "No tasks! Please, add some task . . ."
