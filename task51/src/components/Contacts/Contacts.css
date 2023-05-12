@@ -1,0 +1,58 @@
+table {
+  margin: 20px;
+  border: 1px solid black;
+  padding: 5px;
+}
+
+td {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+button {
+  cursor: pointer;
+}
+
+input {
+  padding: 5px;
+  margin-left: 5px;
+}
+
+.title {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.button__show {
+  padding: 10px 20px;
+  margin-left: 150px;
+}
+
+.button__submit,
+.button__cancel {
+  padding: 7px 15px;
+}
+
+.form {
+  width: 270px;
+  text-align: end;
+  margin-left: 85px;
+}
+.form__label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.form__button-box {
+  width: 175px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 0 auto;
+
+  /* margin-right: 25px; */
+}
