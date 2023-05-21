@@ -1,0 +1,36 @@
+.post {
+  &__item {
+    width: 400px;
+
+    margin: 10px 0px 10px 30px;
+    padding: 10px 20px;
+    box-shadow: 0px 0px 4px grey;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+  }
+
+  &__title {
+    margin-left: 10px;
+    font-weight: 600;
+  }
+
+  &__button {
+    cursor: pointer;
+    display: block;
+    width: 120px;
+    text-decoration: none;
+    text-align: center;
+    padding: 5px 10px;
+    color: black;
+    border: 1px solid grey;
+  }
+}
