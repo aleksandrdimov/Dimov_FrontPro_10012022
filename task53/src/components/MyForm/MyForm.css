@@ -1,0 +1,40 @@
+.formik__form {
+  display: grid;
+  width: 100%;
+}
+
+.formik__input-box {
+  margin-bottom: 10px;
+  height: 40px;
+  text-align: end;
+}
+
+.formik__button {
+  cursor: pointer;
+  width: 150px;
+  padding: 10px 0px;
+  margin: 0 0 0 auto;
+  border: 1px solid grey;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.formik__button:hover {
+  background-color: rgb(134, 209, 209);
+  border: 1px solid white;
+  color: white;
+}
+
+.error {
+  color: red;
+}
+
+label {
+  margin-right: 10px;
+}
+
+input {
+  cursor: pointer;
+  width: 200px;
+  padding: 5px 0;
+}
