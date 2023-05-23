@@ -1,6 +1,4 @@
-import FormName from "./FormName";
-import FormTel from "./FormTel";
-import FormEmail from "./FormEmail";
 import FormButton from "./FormButton";
+import FormInput from "./FormInput";
 
-export { FormName, FormTel, FormEmail, FormButton };
+export { FormButton, FormInput };
