@@ -4,7 +4,7 @@ const InputAdd = (props) => {
       className="input__task"
       type="text"
       value={props.newTasks}
-      onChange={(e) => props.setNewTasks(e.target.value)}
+      onInput={(e) => props.setNewTasks(e.target.value)}
     />
   );
 };

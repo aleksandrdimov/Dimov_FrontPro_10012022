@@ -1,16 +1,15 @@
 import ToDoItem from "./ToDoItem";
 
-const TodoList = (props) => {
+const TodoList = ({ deleteTask, tasks }) => {
   return (
     <ul className="list">
-      {props.tasks.map((el, index) => {
+      {tasks.map((el, index) => {
         return (
           <ToDoItem
-            reactKey={el.id}
+            key={el.id}
             task={el}
             index={index}
-            deleteTask={props.deleteTask}
-            isDone={props.isDone}
+            deleteTask={deleteTask}
           />
         );
       })}

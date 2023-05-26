@@ -1,22 +1,17 @@
 import ButtonDel from "../common/Button/ButtonDel";
 import InputCheckbox from "../common/InputCheckbox/InputCheckbox";
 
-const ToDoItem = (props) => {
+const ToDoItem = ({ deleteTask, task, index }) => {
   return (
-    <li className="item" reactKey={props.reactKey}>
-      <div
-        className="item__content"
-        onClick={() => {
-          props.isDone(props.task.id);
-        }}
-      >
-        <InputCheckbox task={props.task} isDone={props.isDone} />
-        <div className={props.task.status ? "isdone" : ""}>
-          <span className="item__number">{props.index + 1}.</span>
-          <span className="item__text">{props.task.title}</span>
+    <li className="item">
+      <div className="item__content">
+        <InputCheckbox task={task} />
+        <div className="">
+          <span className="item__number">{index + 1}.</span>
+          <span className="item__text">{task.text}</span>
         </div>
       </div>
-      <ButtonDel task={props.task} deleteTask={props.deleteTask} />
+      <ButtonDel task={task} deleteTask={deleteTask} />
     </li>
   );
 };

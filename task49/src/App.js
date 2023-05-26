@@ -1,59 +1,40 @@
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { addTodo, removeTodo } from "./redux/todoSlice";
 import "./App.css";
 import InputAdd from "./components/common/InputAdd/InputAdd";
 import TodoList from "./components/Todo/ToDoList";
 
 function App() {
-  const [tasks, setTasks] = useState([]);
-
-  const deleteTask = (id) => {
-    const result = tasks.filter((el) => el.id !== id);
-    setTasks(result);
-  };
-
   const [newTasks, setNewTasks] = useState("");
 
-  const addTask = () => {
-    if (newTasks) {
-      let num;
-      tasks.length > 0
-        ? (num = tasks.findLast(() => tasks.length).id + 1)
-        : (num = tasks.length + 1);
-      let newTask = {
-        id: num,
-        title: newTasks,
-        status: false,
-      };
-      setTasks([...tasks, newTask]);
-      setNewTasks("");
-    }
+  const count = useSelector((state) => state.todo.count);
+  const todos = useSelector((state) => state.todo.todos);
+  const dispatch = useDispatch();
+
+  const deleteTask = (id) => {
+    dispatch(removeTodo(id));
   };
 
-  const isDone = (id) => {
-    let newTaskDone = tasks.map((task) => {
-      if (task.id === id) {
-        return { ...task, status: !task.status };
-      }
-      return task;
-    });
-    setTasks(newTaskDone);
+  const addTask = (e) => {
+    e.preventDefault();
+    dispatch(addTodo(newTasks));
+    setNewTasks("");
+    console.log(todos);
   };
 
   return (
     <div className="App">
       <div className="wrapper">
         <h1 className="title">ToDo List:</h1>
-        <div>
+        <form onSubmit={addTask}>
           <InputAdd newTasks={newTasks} setNewTasks={setNewTasks} />
-          <button className="button__add" onClick={addTask}>
+          <button className="button__add" type="submit">
             Add Task
           </button>
-        </div>
-        {tasks.length ? (
-          <TodoList tasks={tasks} deleteTask={deleteTask} isDone={isDone} />
-        ) : (
-          "No tasks! Please, add some task . . ."
-        )}
+        </form>
+        {count > 0 && <TodoList tasks={todos} deleteTask={deleteTask} />}
+        {count === 0 && "No tasks! Please, add some task . . ."}
       </div>
     </div>
   );
