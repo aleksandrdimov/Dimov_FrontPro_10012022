@@ -1,0 +1,101 @@
+input[type="checkbox"] {
+  position: relative;
+  appearance: none;
+  margin-right: 15px;
+  margin-top: 3px;
+  background-color: #fff;
+  color: green;
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  display: grid;
+  place-content: center;
+}
+
+input[type="checkbox"]:checked {
+  background-color: transparent;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 3px;
+  transform: scale(0);
+  height: 15px;
+  border: solid green;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 2px 2px;
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1) rotate(35deg);
+}
+
+.wrapper {
+  max-width: 700px;
+  margin: auto;
+}
+
+.input__task {
+  padding: 8px;
+  outline: 2px solid white;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  margin: 20px 0;
+}
+
+.input__task:focus {
+  outline: 2px solid green;
+}
+
+.button__add {
+  cursor: pointer;
+  padding: 10px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: rgb(30, 95, 30);
+  color: white;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #555;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  padding: 10px 10px 10px 15px;
+  text-align: left;
+  font-size: 22px;
+  position: relative;
+}
+
+.item .isdone .item__text {
+  text-decoration: line-through;
+  opacity: 0.3;
+}
+
+.item .isdone .item__number {
+  opacity: 0.3;
+}
+
+.item__content {
+  display: flex;
+  width: 96%;
+  /* cursor: pointer; */
+}
+
+.item__number {
+  padding-right: 10px;
+}
+
+.button-delete,
+.item__checkbox {
+  cursor: pointer;
+}
+
+.item__checkbox {
+  align-self: center;
+}
